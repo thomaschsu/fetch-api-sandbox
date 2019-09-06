@@ -5,7 +5,7 @@ document.querySelector('#get-users').addEventListener('click', getUsers)
 
 document.querySelector('#get-posts').addEventListener('click', getPosts)
 
-document.querySelector('#add-post').addEventListener('click', addPost)
+document.querySelector('#add-post').addEventListener('submit', addPost)
 
 function getText() {
     fetch('sample.txt')
@@ -67,13 +67,13 @@ function addPost(e) {
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method:'POST',
         headers: {
-            'Accept': 'applications/json, text/plain, */*',
+            'Accept': 'application/json, text/plain, */*',
             'Content-type': 'application/json'
         },
-        body:JSON.stringify({title:title,body:body})
+        body:JSON.stringify({title:title, body:body})
     })
     .then((res) => {
-        res.json()
+        return res.json()
     })
     .then((data) => {
         console.log(data)
