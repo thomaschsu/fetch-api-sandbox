@@ -1,5 +1,10 @@
-const getText = function() {
-    fetch('samples.txt')
+
+document.querySelector('#get-text').addEventListener('click', getText)
+
+document.querySelector('#get-users').addEventListener('click', getUsers)
+
+function getText () {
+    fetch('sample.txt')
     .then((res) => {
         return res.text()
     })
@@ -11,4 +16,12 @@ const getText = function() {
     })
 }
 
-document.getElementById('get-text').addEventListener('click', getText)
+function getUsers () {
+    fetch('users.json')
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        console.log(data)
+    })
+}
