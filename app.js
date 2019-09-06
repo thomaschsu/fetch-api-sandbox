@@ -26,7 +26,7 @@ function getUsers() {
             return res.json()
         })
         .then((data) => {
-            let output = '<h2>Users</h2>'
+            let output = '<h2 class="mb-4">Users</h2>'
             data.forEach((user) => {
                 output += `
             <ul class="list-group mb-3">
@@ -46,7 +46,7 @@ function getPosts() {
             return res.json()
         })
         .then((data) => {
-            let output = '<h2>Posts</h2>'
+            let output = '<h2 class="mb-4>Posts</h2>'
             data.forEach((post) => {
                 output += `
             <div class="card card-body mb-3">
