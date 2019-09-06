@@ -3,6 +3,8 @@ document.querySelector('#get-text').addEventListener('click', getText)
 
 document.querySelector('#get-users').addEventListener('click', getUsers)
 
+document.querySelector('#get-posts').addEventListener('click', getPosts)
+
 function getText () {
     fetch('sample.txt')
     .then((res) => {
@@ -33,5 +35,15 @@ function getUsers () {
             `
             document.querySelector('#output').innerHTML = output
         })
+    })
+}
+
+function getPosts() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((res) => {
+        return res.json()
+    })
+    .then((data) => {
+        console.log(data)
     })
 }
