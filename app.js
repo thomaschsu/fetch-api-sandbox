@@ -1,10 +1,13 @@
 const getText = function() {
-    fetch('sample.txt')
+    fetch('samples.txt')
     .then((res) => {
         return res.text()
     })
     .then((data) => {
-        console.log(data)
+        document.querySelector('#output').innerHTML = data
+    })
+    .catch((err) => {
+        console.log(`Error: ${err}`)
     })
 }
 
