@@ -1,7 +1,10 @@
 const getText = function() {
     fetch('sample.txt')
+    .then((res) => {
+        return res.text()
+    })
     .then((data) => {
-        console.log(data.text())
+        console.log(data)
     })
 }
 
