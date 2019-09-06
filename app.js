@@ -5,6 +5,8 @@ document.querySelector('#get-users').addEventListener('click', getUsers)
 
 document.querySelector('#get-posts').addEventListener('click', getPosts)
 
+document.querySelector('#add-post').addEventListener('click', addPost)
+
 function getText() {
     fetch('sample.txt')
         .then((res) => {
@@ -55,4 +57,25 @@ function getPosts() {
                 document.querySelector('#output').innerHTML = output
             })
         })
+}
+
+function addPost(e) {
+    e.preventDefault()
+    let title = document.querySelector('#title').value
+    let body = document.querySelector('#body').value
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method:'POST',
+        headers: {
+            'Accept': 'applications/json, text/plain, */*',
+            'Content-type': 'application/json'
+        },
+        body:JSON.stringify({title:title,body:body})
+    })
+    .then((res) => {
+        res.json()
+    })
+    .then((data) => {
+        console.log(data)
+    })
 }
