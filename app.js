@@ -22,6 +22,16 @@ function getUsers () {
         return res.json()
     })
     .then((data) => {
-        console.log(data)
+        let output = '<h2>Users</h2>'
+        data.forEach((user) => {
+            output += `
+            <ul>
+                <li>ID: ${user.id}</li>
+                <li>Name: ${user.name}</li>
+                <li>Email: ${user.email}</li>
+            </ul>
+            `
+            document.querySelector('#output').innerHTML = output
+        })
     })
 }
